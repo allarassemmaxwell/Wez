@@ -1,0 +1,60 @@
+<ion-header style="background-color: #3880ff">
+  <ion-toolbar color="primary" >
+        <ion-buttons slot="start">
+            <ion-button (click)="back()">
+                <ion-icon name="arrow-round-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-title class="shopname">{{shopSelected}}</ion-title>
+
+        <ion-buttons slot="end" (click)="sendCart()" style="padding-right: 5px;">
+            <ion-icon size="large" name="cart" ></ion-icon><br>
+            <ion-badge color="danger"><div>{{count}}</div></ion-badge>
+        </ion-buttons>
+  </ion-toolbar>
+ 
+</ion-header>
+
+<ion-content >
+  
+    <ion-item class="top">
+      <span *ngIf="!showSearch" style="font-size: 13px;">Pick Pay and Collect</span>
+      <ion-searchbar placeholder="Enter product name" *ngIf="showSearch" [(ngModel)]="searchTerm" (ionChange)="setFilteredItems()"></ion-searchbar>
+      <ion-icon name="search" slot="end" (click)="showSearchBar()"></ion-icon>
+    </ion-item>
+
+   
+
+    <div style="text-align: center;margin-top: 40%; margin-left: 10px; margin-right: 20px; font-size: 13px;" *ngIf="shopSelected != 'Kakila Organic'" >
+      <ion-label>Sorry</ion-label><br>
+      <ion-label>This shop does not offer the Pick pay and collect service</ion-label>
+    </div>
+
+<!-- show spinner when loading product on offers -->
+
+    <div class="loader" *ngIf="offers.length == 0 && shopSelected == 'Kakila Organic'">
+      <ion-spinner name="lines" color="primary"></ion-spinner>
+    </div>
+
+<!-- Display a list of products on offer -->
+
+    <div *ngIf="offers.length > 0">
+        <div class="row">
+            <div class="column" *ngFor="let item of offers">
+                <ion-card class="image-position" class="card-radius"> 
+                    <ion-card-header >
+                        <img class="image" src="{{item.image}}" (click)="viewProduct(item)"><hr>
+                        <ion-card-subtitle><b>{{item.product}} {{item.quantity}}</b></ion-card-subtitle>
+                        <ion-card-subtitle>Kshs: {{item.currentprice}} <small style="color: #fc4e4e;"><s>Kshs: {{item.initialprice}}</s></small></ion-card-subtitle>
+                        <ion-button expand="full" color="primary" style="margin-top: 5%;" (click)="addToCart(item)">
+                            <ion-icon slot="start" name="cart"></ion-icon>
+                           <div style=" font-size: 13px;">Add to cart</div> 
+                        </ion-button>
+                    </ion-card-header>
+                </ion-card>
+            </div>
+        </div>
+    </div>
+
+</ion-content>

@@ -1,0 +1,93 @@
+.comment {
+    padding: 15px;
+    .container {
+        .user-profile-image {
+            padding-left: 10px; 
+            padding-bottom: 10px;
+            ion-avatar {
+                width: 40px; 
+                height: 40px;
+            }
+        }
+        .user-name-comment-time {
+            .user-name {
+                position: absolute; 
+                left: 80px; 
+                margin-top: -50px; 
+                font-size: 15px; 
+                font-weight: bold;
+            }
+            .comment-time {
+                position: absolute; 
+                right: 35px; 
+                margin-top: -50px; 
+                font-size: 14px; 
+                color: #636363;
+            }
+        }
+        .user-message {
+            padding-left: 67px; 
+            padding-right: 20px; 
+            text-align: left; 
+            font-size: 14px; 
+            color: #636363; 
+            margin-top: -17px;
+        }
+        .user-reply {
+            padding-left: 67px; 
+            padding-top: 10px;
+            font-size: 11px; 
+            color: #636363; 
+
+        }
+        .user-reply-bottom-line {
+            height: 1px; 
+            background-color: #636363; 
+            margin-left: 67px; 
+            margin-right: 20px; 
+            opacity: 0.1;  
+            margin-top: 15px;
+        }
+        .sub-comment {
+            padding-left: 67px; 
+            padding-top: 10px;
+            ion-avatar {
+                width: 30px; 
+                height: 30px;
+            }
+            .user-name-comment-date {
+                .user-name {
+                    position: absolute; 
+                    left: 130px; 
+                    margin-top: -31px; 
+                    font-size: 13px; 
+                    font-weight: bold;
+                }
+                .comment-date {
+                    position: absolute; 
+                    right: 35px; 
+                    margin-top: -31px; 
+                    font-size: 12px; 
+                    color: #636363;
+                }
+            }
+            .user-message {
+                padding-left: 48px; 
+                padding-right: 20px; 
+                text-align: left; 
+                font-size: 14px; 
+                color: #636363; 
+                margin-top: -5px;
+            }
+        }
+        .bottom-line {
+            height: 1px; 
+            background-color: #636363; 
+            margin-left: 10px; 
+            margin-right: 20px; 
+            opacity: 0.1; 
+            margin-bottom: 20px; 
+            margin-top: 15px;
+        }
+    }
+}
